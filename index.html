@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<!-- saved from url=(0167)file:///C:/Users/2022/Downloads/Shifaa%20Travel%20-%20%D8%B4%D9%8A%D9%81%D8%A7%20%D9%84%D9%84%D8%B3%D9%81%D8%B1%20%D9%88%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%AD%D8%A9.html -->
+<html lang="ar"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Shifaa Travel - شيفا للسفر والسياحة</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+body{
+background:#0099ff;
+color:white;
+min-height:100vh;
+position:relative;
+}
+
+/* خلفية */
+body::before{
+content:"أولاد الشفيع";
+position:absolute;
+top:50%;left:50%;
+transform:translate(-50%,-50%) rotate(-15deg);
+font-size:300px;
+color:white;
+opacity:0.08;
+text-shadow:5px 5px 5px black,-5px -5px 5px blue;
+}
+
+/* عام */
+.overlay{padding:20px;text-align:center;position:relative;z-index:1;}
+
+.logo{
+font-size:48px;
+font-weight:bold;
+color:#00ffd5;
+-webkit-text-stroke:2px black;
+}
+
+.menu{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+justify-content:center;
+margin-top:20px;
+}
+
+.menu button{
+flex:1 1 180px;
+padding:18px;
+border:none;
+border-radius:12px;
+font-size:18px;
+font-weight:bold;
+background:#00c3ff;
+color:white;
+box-shadow:0 5px 15px black;
+cursor:pointer;
+}
+
+.section{display:none;margin-top:20px;}
+
+.card{
+background:white;
+color:black;
+padding:20px;
+border-radius:15px;
+max-width:600px;
+margin:auto;
+font-weight:bold;
+box-shadow:0 5px 15px rgba(0,0,0,0.4);
+}
+
+input,select{
+width:80%;
+padding:10px;
+margin:8px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+.price{
+background:#eee;
+padding:10px;
+margin:5px;
+border-radius:8px;
+}
+
+button.action{
+background:#00b894;
+color:white;
+padding:12px;
+border:none;
+border-radius:10px;
+margin-top:10px;
+cursor:pointer;
+}
+
+.footer{
+margin-top:40px;
+background:white;
+color:black;
+padding:10px;
+border-radius:10px;
+}
+.footer strong{
+color:red;
+text-shadow:1px 1px 2px black;
+}
+</style>
+</head>
+
+<body>
+<div class="overlay">
+
+<div class="logo">✈️ Shifaa Travel</div>
+<p>شيفا للسفر والسياحة</p>
+
+<!-- القائمة -->
+<div class="menu">
+<button onclick="openSection(&#39;tickets&#39;)">تذاكر</button>
+<button onclick="openSection(&#39;umrah&#39;)">عمرة</button>
+<button onclick="openSection(&#39;visit&#39;)">زيارة</button>
+<button onclick="openSection(&#39;jobs&#39;)">عقود</button>
+<button onclick="openSection(&#39;currency&#39;)">عملات</button>
+<button onclick="openSection(&#39;sendDoc&#39;)">إرساليات</button>
+<button onclick="openSection(&#39;ramadan&#39;)">كيس الصائم</button>
+<button onclick="openSection(&#39;draw&#39;)">السحب</button>
+<button onclick="openSection(&#39;social&#39;)">التواصل</button>
+</div>
+
+<!-- ===== التذاكر ===== -->
+<div id="tickets" class="section" style="display: none;">
+<div class="card">
+<h3>✈️ / 🚢 حجز تذاكر</h3>
+
+<select id="type">
+<option value="طيران">طيران</option>
+<option value="بواخر">بواخر</option>
+</select>
+
+<select id="from">
+<option>جدة</option><option>القاهرة</option><option>أبها</option>
+<option>الدمام</option><option>الرياض</option>
+<option>الخرطوم</option><option>بورتسودان</option>
+</select>
+
+<select id="to">
+<option>جدة</option><option>القاهرة</option><option>أبها</option>
+<option>الدمام</option><option>الرياض</option>
+<option>الخرطوم</option><option>بورتسودان</option>
+</select>
+
+<div contenteditable="true" class="price">السعر: 1500 ريال</div>
+
+<button class="action" onclick="sendTicket()">تواصل معنا</button>
+</div>
+</div>
+
+<!-- ===== العمرة ===== -->
+<div id="umrah" class="section" style="display: none;">
+<div class="card">
+<h3>🕋 العمرة</h3>
+
+<select id="country">
+<option>السودان</option>
+<option>مصر</option>
+<option>المغرب</option>
+<option>نيجيريا</option>
+<option>تشاد</option>
+<option>السعودية</option>
+<option>الإمارات</option>
+<option>قطر</option>
+<option>الكويت</option>
+<option>البحرين</option>
+<option>عمان</option>
+</select>
+
+<div contenteditable="true" class="price">السعر: 2500 ريال</div>
+
+<p>⚠️ يُنصح بحجز التذاكر من الموقع</p>
+
+<button class="action" onclick="sendUmrah()">تواصل معنا</button>
+</div>
+</div>
+
+<!-- ===== زيارة ===== -->
+<div id="visit" class="section" style="display: none;">
+<div class="card">
+<h3>🌍 زيارة</h3>
+
+<div contenteditable="true" class="price">عائلية - 150 ريال</div>
+<div contenteditable="true" class="price">سياحية - 1200 ريال</div>
+<div contenteditable="true" class="price">شخصية - 2500 ريال</div>
+
+<button class="action" onclick="sendVisit()">تواصل معنا</button>
+</div>
+</div>
+
+<!-- ===== عقود ===== -->
+<div id="jobs" class="section" style="display: block;">
+<div class="card">
+<h3>💼 عقود</h3>
+<div contenteditable="true" class="price">عامل توصيل راتب 2000</div>
+<div contenteditable="true" class="price">مدرس ابتدائي منهج سوداني&nbsp;</div>
+<button class="action" onclick="sendJobs()">تواصل معنا</button>
+</div>
+</div>
+
+<!-- ===== العملات ===== -->
+<div id="currency" class="section" style="display: none;">
+<div class="card">
+<h3>💱 العملات</h3>
+
+<select id="cur">
+<option>دولار</option>
+<option>جنيه مصري</option>
+<option>جنيه سوداني</option>
+</select>
+
+<div contenteditable="true" class="price">سعر الشراء</div>
+<div contenteditable="true" class="price">سعر البيع</div>
+
+<input id="amount" placeholder="الكمية">
+
+<button class="action" onclick="sendCurrency()">تواصل معنا</button>
+</div>
+</div>
+
+<!-- ===== إرساليات ===== -->
+<div id="sendDoc" class="section" style="display: none;">
+<div class="card">
+<h3>📦 إرساليات</h3>
+<input id="doc" placeholder="نوع المستند">
+<input id="fromDoc" placeholder="من">
+<input id="toDoc" placeholder="إلى">
+<button class="action" onclick="sendDoc()">إرسال</button>
+</div>
+</div>
+
+<!-- ===== كيس الصائم ===== -->
+<div id="ramadan" class="section" style="display: none;">
+<div class="card">
+<h3>🎁 كيس الصائم</h3>
+<input id="name" placeholder="الاسم رباعي">
+<input id="place" placeholder="السكن">
+<input id="age" placeholder="العمر">
+<p>رقم الحساب: 3232121 - مصعب إبراهيم الشفيع</p>
+<button class="action" onclick="sendRamadan()">تواصل معنا</button>
+</div>
+</div>
+
+<!-- ===== السحب ===== -->
+<div id="draw" class="section" style="display: none;">
+<div class="card">
+<h3>🎉 السحب على جوائز</h3>
+
+<p>الشروط:</p>
+<p>1- متابعة الحسابات</p>
+<p>2- مشاركة في 3 مجموعات واتساب</p>
+
+<input id="drawName" placeholder="اسمك">
+
+<button class="action" onclick="sendDraw()">اشترك الآن</button>
+</div>
+</div>
+
+<!-- ===== التواصل ===== -->
+<div id="social" class="section" style="display: none;">
+<div class="card">
+<h3>📱 صفحاتنا</h3>
+<button onclick="window.open(&#39;https://wa.me/966551656506&#39;)">واتساب</button>
+<button onclick="window.open(&#39;https://facebook.com&#39;)">فيسبوك</button>
+<button onclick="window.open(&#39;https://tiktok.com&#39;)">تيك توك</button>
+</div>
+</div>
+
+<div class="footer">
+<p>حفظكم الله</p>
+<p><strong>ود الشفيع للسفر السريع</strong></p>
+</div>
+
+</div>
+
+<script>
+function openSection(id){
+document.querySelectorAll('.section').forEach(s=>s.style.display='none');
+document.getElementById(id).style.display='block';
+}
+
+let phone="966551656506";
+
+function sendTicket(){
+window.open(`https://wa.me/${phone}?text=طلب تذكرة`);
+}
+
+function sendUmrah(){
+let c=country.value;
+window.open(`https://wa.me/${phone}?text=عمرة من ${c}`);
+}
+
+function sendVisit(){
+window.open(`https://wa.me/${phone}?text=طلب زيارة`);
+}
+
+function sendJobs(){
+window.open(`https://wa.me/${phone}?text=عقد عمل`);
+}
+
+function sendCurrency(){
+let c=cur.value,a=amount.value;
+window.open(`https://wa.me/${phone}?text=عملة ${c} الكمية ${a}`);
+}
+
+function sendDoc(){
+let t=doc.value,f=fromDoc.value,to=toDoc.value;
+window.open(`https://wa.me/${phone}?text=إرسال ${t} من ${f} إلى ${to}`);
+}
+
+function sendRamadan(){
+let n=name.value;
+window.open(`https://wa.me/${phone}?text=كيس الصائم ${n}`);
+}
+
+function sendDraw(){
+let n=drawName.value;
+window.open(`https://wa.me/${phone}?text=اشتراك في السحب ${n}`);
+}
+</script>
+
+
+
+</body></html>
