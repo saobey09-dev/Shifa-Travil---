@@ -5,148 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الحج والعمرة - شيفا للسفر</title>
     <style>
-        body {
-            /* خلفية ملونة احتياطية */
-            background-color: #4db8ff;
-            /* اسم الصورة التي سترفعها على جيتهاب */
-            background-image: url('kaaba.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        /* طبقة شفافة لجعل المحتوى واضحاً فوق الخلفية */
-        .overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.3); /* سواد خفيف جداً لإبراز النص */
-            z-index: -1;
-        }
-
-        .logo-section { text-align: center; margin-bottom: 30px; }
-        .title-en { font-size: 35px; color: #fff; font-weight: bold; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
-        .title-ar { font-size: 38px; color: #fff; font-weight: bold; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
-
-        .content-card {
-            background: white;
-            width: 95%;
-            max-width: 600px;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            text-align: center;
-        }
-
-        .alert-finance { background: #fff3cd; color: #856404; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-weight: bold; border: 1px solid #ffeeba; font-size: 14px; }
-
+        body { background-image: url('kaaba.jpg'); background-size: cover; background-position: center; background-attachment: fixed; font-family: Arial, sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3); z-index: -1; }
+        .content-card { background: white; width: 95%; max-width: 600px; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); text-align: center; }
+        .alert-finance { background: #fff3cd; color: #856404; padding: 12px; border-radius: 8px; margin-bottom: 20px; font-weight: bold; border: 1px solid #ffeeba; }
         .main-btns { display: flex; gap: 10px; margin-bottom: 20px; }
         .tab-btn { flex: 1; padding: 15px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 18px; color: white; }
-        .hajj-btn { background: #1a5e20; }
-        .umrah-btn { background: #bf9b30; }
-
+        .hajj-btn { background: #1a5e20; } .umrah-btn { background: #bf9b30; }
         .form-section { display: none; text-align: right; border: 1px solid #eee; padding: 15px; border-radius: 10px; margin-top: 10px; }
-        label { display: block; margin-top: 10px; font-weight: bold; color: #333; }
         input, select { width: 100%; padding: 12px; margin: 5px 0; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; }
-
-        .madina-badge {
-            background-color: #e8f5e9; color: #2e7d32; border: 1px dashed #2e7d32;
-            padding: 8px; border-radius: 5px; font-size: 13px; margin-top: 5px; display: none; font-weight: bold;
-        }
-
-        .action-btn { background: #28a745; color: white; border: none; padding: 12px; width: 100%; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 15px; }
-        .whatsapp-btn { background: #25D366; color: white; text-decoration: none; display: block; padding: 12px; border-radius: 5px; font-weight: bold; margin-top: 10px; text-align: center; }
-        .back-btn { margin-top: 20px; display: inline-block; padding: 10px 20px; background: #000; color: white; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        .madina-badge { background-color: #e8f5e9; color: #2e7d32; border: 1px dashed #2e7d32; padding: 8px; border-radius: 5px; font-size: 13px; margin-top: 5px; display: none; font-weight: bold; }
+        .whatsapp-btn { background: #25D366; color: white; text-decoration: none; display: block; padding: 15px; border-radius: 8px; font-weight: bold; margin-top: 15px; text-align: center; }
+        .back-btn { margin-top: 20px; display: inline-block; padding: 10px 20px; background: #000; color: white; border-radius: 5px; text-decoration: none; }
     </style>
 </head>
 <body>
-
     <div class="overlay"></div>
-
-    <div class="logo-section">
-        <div class="title-en">✈️ Shifaa Travel</div>
-        <div class="title-ar">شيفا للسفر والسياحة ✈️</div>
-    </div>
-
     <div class="content-card">
-        <div class="alert-finance">
-            📢 إشعار هام: يتم استلام نصف المبلغ (50%) قبل البدء في الإجراءات، والنصف الآخر مباشرة بعد إتمام الإجراء بنجاح.
-        </div>
-
+        <div class="alert-finance">📢 إشعار: يتم استلام 50% قبل البدء، والباقي بعد الإتمام.</div>
         <div class="main-btns">
             <button class="tab-btn hajj-btn" onclick="showForm('hajj')">🕋 خدمات الحج</button>
             <button class="tab-btn umrah-btn" onclick="showForm('umrah')">🕌 خدمات العمرة</button>
         </div>
-
         <div id="hajj-form" class="form-section">
-            <h3 style="color:#1a5e20; text-align:center;">التسجيل لموسم الحج</h3>
-            <label>الاسم الرباعي:</label>
-            <input type="text" placeholder="اكتب الاسم كما في الجواز">
-            <label>العمر:</label>
-            <input type="number">
-            <label>الجنسية:</label>
-            <input type="text">
-            <label>الدولة المقيم بها:</label>
-            <select>
-                <option disabled selected>اختر الدولة</option>
-                <optgroup label="دول أفريقيا العربية">
-                    <option>السودان</option><option>مصر</option><option>ليبيا</option><option>تونس</option><option>الجزائر</option><option>المغرب</option><option>موريتانيا</option><option>جيبوتي</option><option>الصومال</option>
-                </optgroup>
-                <optgroup label="دول الشرق الأوسط">
-                    <option>السعودية</option><option>الإمارات</option><option>قطر</option><option>الكويت</option><option>عمان</option><option>البحرين</option><option>الأردن</option><option>فلسطين</option><option>لبنان</option><option>سوريا</option><option>العراق</option><option>اليمن</option>
-                </optgroup>
-            </select>
-            <button class="action-btn">تقديم طلب الحج</button>
+            <h3 style="color:#1a5e20; text-align:center;">تسجيل الحج</h3>
+            <input type="text" placeholder="الاسم الرباعي">
+            <input type="number" placeholder="العمر">
+            <input type="text" placeholder="الجنسية">
+            <a href="https://wa.me/966551655706?text=السلام%20عليكم%20أريد%20التقديم%20على%20خدمة%20الحج" class="whatsapp-btn">تقديم طلب حج عبر الخاص 💬</a>
         </div>
-
         <div id="umrah-form" class="form-section">
-            <h3 style="color:#bf9b30; text-align:center;">طلب تأشيرة عمرة</h3>
-            <label>نوع الخدمة:</label>
+            <h3 style="color:#bf9b30; text-align:center;">طلب عمرة</h3>
             <select id="umrah-type" onchange="toggleMadinaBadge()">
                 <option value="none">اختر نوع العمرة</option>
-                <option value="full">عمرة بخدمات داخلية (سكن ونقل)</option>
-                <option value="only-visa">عمرة بدون خدمات (تأشيرة فقط)</option>
+                <option value="full">عمرة بخدمات داخلية</option>
+                <option value="only-visa">عمرة بدون خدمات</option>
             </select>
-
-            <div id="madina-badge" class="madina-badge">
-                ✨ يشمل زيارة للمدينة المنورة والدخول إلى الروضة الشريفة
-            </div>
-
-            <label>الاسم الكامل:</label>
-            <input type="text">
-            <label>الجنسية:</label>
-            <input type="text">
-            <label>الدولة المقترح السفر منها:</label>
-            <input type="text" placeholder="مثلاً: من السودان">
-            <a href="https://wa.me/249XXXXXXXXX" class="whatsapp-btn">تواصل للاستفسار عبر الخاص 💬</a>
+            <div id="madina-badge" class="madina-badge">✨ يشمل زيارة المدينة والدخول للروضة</div>
+            <input type="text" placeholder="الاسم الكامل">
+            <a href="https://wa.me/966551655706?text=السلام%20عليكم%20أريد%20الاستفسار%20عن%20العمرة" class="whatsapp-btn">استفسار عن العمرة 💬</a>
         </div>
-
-        <br>
         <a href="index.html" class="back-btn">العودة للرئيسية</a>
     </div>
-
     <script>
-        function showForm(type) {
-            document.getElementById('hajj-form').style.display = 'none';
-            document.getElementById('umrah-form').style.display = 'none';
-            document.getElementById(type + '-form').style.display = 'block';
-        }
-
-        function toggleMadinaBadge() {
-            var type = document.getElementById('umrah-type').value;
-            var badge = document.getElementById('madina-badge');
-            badge.style.display = (type === 'full') ? 'block' : 'none';
-        }
+        function showForm(type) { document.getElementById('hajj-form').style.display = 'none'; document.getElementById('umrah-form').style.display = 'none'; document.getElementById(type + '-form').style.display = 'block'; }
+        function toggleMadinaBadge() { var type = document.getElementById('umrah-type').value; document.getElementById('madina-badge').style.display = (type === 'full') ? 'block' : 'none'; }
     </script>
-
 </body>
 </html>
 
