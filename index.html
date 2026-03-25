@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شيفا للسفر والسياحة</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+
+            /* هنا نضع اسم الصورة الجديدة التي رفعتها على GitHub */
+            background-image: url('main_bg.jpg');
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* طبقة شفافة لتعتيم الخلفية قليلاً لضمان وضوح النصوص والأزرار */
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* تعتيم خفيف لزيادة الفخامة والوضوح */
+            z-index: -1;
+        }
+
+        /* تنسيق الشعار العلوي */
+        .header {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: white;
+            font-size: 35px;
+            margin: 0;
+            text-shadow: 2px 2px 10px rgba(0,0,0,1); /* ظل أسود قوي للنص الأبيض */
+        }
+        .header h2 {
+            color: white;
+            font-size: 38px;
+            margin: 10px 0;
+            text-shadow: 2px 2px 10px rgba(0,0,0,1); /* ظل أسود قوي للنص العربي */
+        }
+
+        /* حاوية الأزرار */
+        .buttons-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            width: 90%;
+            max-width: 500px;
+            padding: 20px;
+            /* تأثير زجاجي خلف الأزرار لتبدو احترافية */
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            background-color: #4db8ff; /* لون موقعك الأزرق الأصلي */
+            color: black;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 18px;
+            transition: 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            background-color: #008ae6;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* زر العناوين الطويلة تأخذ السطر كاملاً */
+        .full-width {
+            grid-column: span 2;
+        }
+
+        .footer {
+            margin-top: auto;
+            padding: 20px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 5px black;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="overlay"></div>
+
+    <div class="header">
+        <h1>✈️ Shifaa Travel</h1>
+        <h2>شيفا للسفر والسياحة ✈️</h2>
+    </div>
+
+    <div class="buttons-container">
+        <a href="umrah.html" class="btn">حمرة 🕋</a>
+        <a href="withdrawal.html" class="btn">السحب 💳</a>
+        <a href="visit.html" class="btn">زيارة 🛂</a>
+        <a href="contracts.html" class="btn">عقود 📄</a>
+
+        <a href="transfers.html" class="btn full-width">إرساليات 📦</a>
+        <a href="currency.html" class="btn full-width">عملات 💰</a>
+        <a href="fasting.html" class="btn full-width">كيس الصائم 🌙</a>
+        <a href="contact.html" class="btn full-width">تواصل معنا 📞</a>
+    </div>
+
+    <div class="footer">
+        مع ود الشفيع سفرك مريح.. حفظكم الله
+    </div>
+
+</body>
+</html>
+
+
