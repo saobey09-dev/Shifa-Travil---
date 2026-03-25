@@ -5,15 +5,36 @@
 <title>Shifaa Travel - شيفا للسفر والسياحة</title>
 
 <style>
-  /* تنسيق الحاوية لتوزيع الأزرار */
 .nav-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* زرين في كل صف */
-    gap: 10px; /* المسافة بين الأزرار */
+    /* هنا جعلنا العرض 3 أعمدة بدلاً من 2 */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px; /* مسافة بسيطة بين الأزرار */
     padding: 10px;
     width: 100%;
     box-sizing: border-box;
 }
+
+.nav-container button {
+    width: 100%;
+    padding: 12px 2px; /* تقليل الحشو الداخلي ليناسب العرض الضيق */
+    font-size: 14px; /* تصغير الخط قليلاً ليظهر الكلمة كاملة في 3 أعمدة */
+    font-weight: bold;
+    color: #004a7c;
+    background-color: #87ceeb;
+    border: 1px solid #5fb1d2;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* لجعل زر التواصل في سطر وحده بالأسفل ليظل واضحاً */
+.full-width-btn {
+    grid-column: span 3;
+    margin-top: 5px;
+}
+
+
 
 /* تنسيق الزر العريض (التواصل) */
 .full-width-btn {
