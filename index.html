@@ -4,7 +4,7 @@
 
 <title>Shifaa Travel - شيفا للسفر والسياحة</title>
 
-<style
+<style>
   /* تنسيق الحاوية لتوزيع الأزرار */
 .nav-container {
     display: grid;
@@ -21,18 +21,19 @@
 }
 
 /* شكل الأزرار العام لملء الفراغ */
-.nav-container button {
-    width: 100%;
-    padding: 15px 5px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #004a7c; /* لون الخط الداكن */
-    background-color: #87ceeb; /* لونك السماوي */
-    border: 1px solid #5fb1d2;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
+<div class="nav-container">
+    <button onclick="openSection('contracts')">عقود</button>
+    <button onclick="openSection('visit')">زيارة</button>
+    <button onclick="openSection('umrah')">عمرة</button>
+    <button onclick="openSection('tickets')">تذاكر</button>
+    <button onclick="openSection('withdrawal')">السحب</button>
+    <button onclick="openSection('fasting')">كيس الصائم</button>
+    <button onclick="openSection('transfers')">إرساليات</button>
+    <button onclick="openSection('currency')">عملات</button>
+    <button class="full-width-btn" onclick="openSection('contact')">التواصل</button>
+</div>
+
+
 
 
 
