@@ -2,91 +2,136 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>خدمة السحب - شيفا للسفر</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سحب عمرة رمضان المجانية - شفا ترافيل</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #4db8ff; font-family: Arial, sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
-        .logo-section { text-align: center; margin-bottom: 30px; }
-        .title-en { font-size: 35px; color: #000; font-weight: bold; -webkit-text-stroke: 1px #E0FFFF; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-        .title-ar { font-size: 38px; color: #000; font-weight: bold; -webkit-text-stroke: 1px #E0FFFF; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-
-        .content-card {
-            background: white;
+        body {
+            font-family: 'Cairo', sans-serif;
+            /* إضافة صورة الخلفية هنا */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('omra_bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95); /* خلفية بيضاء شفافة قليلاً */
             width: 90%;
-            max-width: 500px;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            max-width: 450px;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
             text-align: center;
+            backdrop-filter: blur(5px); /* تأثير ضبابي خلف النموذج */
         }
-
-        .info-box {
-            background-color: #e3f2fd;
-            color: #0d47a1;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            text-align: right;
-            line-height: 1.6;
-        }
-
-        .alert-security {
-            color: #721c24;
-            background-color: #f8d7da;
-            border: 1px solid #f5c6cb;
-            padding: 10px;
-            font-size: 14px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-
-        .whatsapp-btn {
-            display: block;
-            background: #25D366;
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            text-decoration: none;
+        .alert-top {
+            background: #ffd700;
+            color: #000;
+            padding: 8px;
             font-weight: bold;
-            font-size: 18px;
-            margin-bottom: 20px;
+            font-size: 13px;
+            margin-bottom: 15px;
+            border-radius: 50px;
+            animation: pulse 2s infinite;
         }
-
-        .back-btn {
-            display: inline-block;
-            padding: 10px 25px;
-            background: #000;
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        h2 { color: #1a5276; margin: 10px 0; font-size: 24px; }
+        .main-desc { color: #555; font-size: 14px; line-height: 1.6; }
+        .notice {
+            background: #fff0f0;
+            color: #c0392b;
+            border-right: 5px solid #e74c3c;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 13px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        .form-group { text-align: right; margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50; }
+        input[type="text"], input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            background: #fff;
+        }
+        .btn-group { display: flex; gap: 10px; margin-top: 25px; }
+        .btn-submit {
+            flex: 2;
+            background: #1a5276;
             color: white;
             border: none;
-            border-radius: 5px;
-            text-decoration: none;
+            padding: 14px;
+            border-radius: 8px;
             font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-submit:hover { background: #154360; }
+        .btn-back {
+            flex: 1;
+            background: #ecf0f1;
+            color: #2c3e50;
+            border: 1px solid #bdc3c7;
+            padding: 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
 <body>
 
-    <div class="logo-section">
-        <div class="title-en">✈️ Shifaa Travel</div>
-        <div class="title-ar">شيفا للسفر والسياحة ✈️</div>
+<div class="container">
+    <div class="alert-top">🌟 اقترب موعد السحب السنوي لرحلة العمرة 🌟</div>
+
+    <h2>سحب عمرة رمضان 🌙</h2>
+    <p class="main-desc">فرصتك لزيارة بيت الله الحرام في شهر الخير مجاناً.</p>
+
+    <div class="notice">
+        📍 تنبيه: المشاركة حصرياً للسودانيين فقط.
     </div>
 
-    <div class="content-card">
-        <h2>💳 خدمة السحب النقدي</h2>
-
-        <div class="info-box">
-            • نوفر خدمة السحب عبر التطبيقات البنكية.<br>
-            • عمولات منافسة وسرعة في التنفيذ.<br>
-            • الخدمة متوفرة خلال ساعات العمل الرسمية.
+    <form id="drawForm">
+        <div class="form-group">
+            <label>الاسم الرباعي الكامل:</label>
+            <input type="text" id="fullName" placeholder="كما هو مدون في الجواز" required>
         </div>
 
-        <div class="alert-security">
-            🔒 ملاحظة أمنية: عمليات السحب تتطلب إبراز الهوية الشخصية الأصلية لصاحب الحساب.
+        <div class="form-group">
+            <label>إرفاق صورة الجواز (أو الهوية):</label>
+            <input type="file" id="passportFile" accept="image/*,.pdf" required>
         </div>
 
-        <a href="https://wa.me/249XXXXXXXXX" class="whatsapp-btn">طلب سحب الآن 💬</a>
+        <div class="btn-group">
+            <button type="submit" class="btn-submit">تأكيد الاشتراك في السحب</button>
+            <a href="index.html" class="btn-back">رجوع</a>
+        </div>
+    </form>
+</div>
 
-        <a href="index.html" class="back-btn">العودة للرئيسية</a>
-    </div>
+<script>
+    document.getElementById('drawForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('fullName').value;
+        alert("شكراً لك يا " + name + ".\nتم تسجيل بياناتك بنجاح. سيتم التواصل مع الفائز عبر القنوات الرسمية. نسأل الله لنا ولكم التوفيق.");
+        window.location.href = 'index.html';
+    });
+</script>
 
 </body>
 </html>
