@@ -2,202 +2,221 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>شيفا للسفر والسياحة - Shifa Travel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شيفا للسفر والسياحة - إدارة مصعب إبراهيم</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #1a5276;
-            --accent-color: #3498db;
-            --bg-overlay: rgba(0, 0, 0, 0.65);
-        }
-
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
         body, html {
             margin: 0;
             padding: 0;
-            width: 100%;
             height: 100%;
-            overflow: hidden;
             font-family: 'Cairo', sans-serif;
+            overflow-x: hidden;
         }
 
-        .app-background {
+        /* خلفية الفيديو */
+        #bg-video {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: linear-gradient(var(--bg-overlay), var(--bg-overlay)), url('main_bg.jpg');
-            background-size: cover;
-            background-position: center;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
             z-index: -1;
+            object-fit: cover;
         }
 
-        .app-container {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-            color: white;
-        }
-
-        header {
-            padding: 30px 20px 10px;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 22px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-            line-height: 1.4;
-        }
-
-        header .en-title {
-            display: block;
-            font-size: 18px;
-            font-weight: 400;
-            margin-top: 5px;
-            letter-spacing: 1px;
-        }
-
-        .menu-grid {
-            flex: 1;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            padding: 15px;
-            overflow-y: auto;
-            align-content: start;
-        }
-
-        .menu-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: white;
-            transition: transform 0.2s ease;
-            margin-bottom: 8px;
-        }
-
-        .menu-item:active { transform: scale(0.9); }
-
-        .icon-wrapper {
-            width: 62px;
-            height: 62px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            border-radius: 18px;
+        /* الهيدر مع اللوجو والاسم */
+        .header {
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            margin-bottom: 5px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            position: relative;
+            z-index: 10;
         }
 
-        .menu-item span {
-            font-size: 11px;
-            font-weight: 600;
+        .header img {
+            height: 65px;
+            margin-left: 15px;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+        }
+
+        /* القائمة الجانبية */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            text-align: right;
+        }
+
+        .sidebar a {
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #ccc;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .openbtn {
+            font-size: 25px;
+            cursor: pointer;
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            padding: 10px 15px;
+            border: 1px solid white;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 101;
+            border-radius: 5px;
+        }
+
+        /* حاوية الأزرار */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 65%;
+            position: relative;
+            z-index: 5;
+        }
+
+        .btn-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            width: 85%;
+            max-width: 900px;
+        }
+
+        .btn {
+            padding: 18px;
+            font-size: 1.1rem;
+            color: white;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 30px;
+            text-decoration: none;
             text-align: center;
-            line-height: 1.2;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+            transition: 0.4s;
+            backdrop-filter: blur(8px);
         }
 
-        footer {
-            padding: 15px;
+        .btn:hover {
+            background: white;
+            color: #003a5c;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* تذييل الصفحة (الفوتر) مع اسم الإدارة */
+        .footer-info {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
             text-align: center;
+            color: white;
+            z-index: 10;
         }
 
-        .slogan {
-            font-size: 14px;
-            font-weight: 600;
-            color: #ffd700; /* لون ذهبي لتمييز الشعار */
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-            margin-bottom: 5px;
+        .management-name {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
         }
 
-        .copyright {
-            font-size: 10px;
-            opacity: 0.6;
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 10px;
         }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.6rem;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #00c3ff;
+            transform: scale(1.2);
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="app-background"></div>
+    <video autoplay muted loop id="bg-video">
+        <source src="viedu.mp4" type="video/mp4">
+    </video>
 
-    <div class="app-container">
-        <header>
-            <h1>شيفا للسفر والسياحة ✈️<br><span class="en-title">Shifa Travel ✈️</span></h1>
-        </header>
-
-        <nav class="menu-grid">
-            
-            <a href="tickets.html" class="menu-item">
-                <div class="icon-wrapper">🎟️</div>
-                <span>حجز تذاكر</span>
-            </a>
-
-            <a href="visit.html" class="menu-item">
-                <div class="icon-wrapper">🛂</div>
-                <span>تأشيرات</span>
-            </a>
-
-            <a href="contracts.html" class="menu-item">
-                <div class="icon-wrapper">💼</div>
-                <span>عقود عمل</span>
-            </a>
-
-            <a href="currency.html" class="menu-item">
-                <div class="icon-wrapper">💳</div>
-                <span>عملات</span>
-            </a>
-
-            <a href="transfers.html" class="menu-item">
-                <div class="icon-wrapper">📦</div>
-                <span>إرساليات</span>
-            </a>
-
-            <a href="fasting.html" class="menu-item">
-                <div class="icon-wrapper">🌙</div>
-                <span>كيس الصائم</span>
-            </a>
-
-            <a href="umrah.html" class="menu-item">
-                <div class="icon-wrapper">🕌</div>
-                <span>حج وعمرة</span>
-            </a>
-
-            <a href="withdrawal.html" class="menu-item">
-                <div class="icon-wrapper">🕋</div>
-                <span>سحب العمرة</span>
-            </a>
-
-            <a href="contact.html" class="menu-item">
-                <div class="icon-wrapper">📞</div>
-                <span>تواصل معنا</span>
-            </a>
-
-        </nav>
-
-        <footer>
-            <div class="slogan">ود الشفيع سفرك سريع ✨</div>
-            <div class="copyright">&copy; 2026 شيفا للسفر والسياحة - جميع الحقوق محفوظة</div>
-        </footer>
+    <div class="header">
+        <img src="logo.png" alt="لوجو شيفا">
+        <h1>شيفا للسفر والسياحة</h1>
     </div>
+
+    <button class="openbtn" onclick="toggleNav()">☰</button>
+    <div id="mySidebar" class="sidebar">
+        <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+        <a href="contracts.html"><i class="fas fa-file-contract"></i> قسم العقود</a>
+        <a href="tickets.html"><i class="fas fa-plane"></i> حجز تذاكر</a>
+        <a href="#"><i class="fas fa-headset"></i> الدعم الفني</a>
+    </div>
+
+    <div class="container">
+        <div class="btn-container">
+            <a href="contracts.html" class="btn">قسم العقود والتوظيف</a>
+            <a href="tickets.html" class="btn">حجز طيران وفنادق</a>
+            <a href="https://wa.me/966551655706?text=مرحباً%20شيفا%20للسفر%2C%20أرخص%20عروضكم%20الحالية" class="btn" target="_blank">تواصل معنا واتساب</a>
+            <a href="#" class="btn">خدمات التأشيرات</a>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <div class="management-name">إدارة: مصعب إبراهيم الشفيع</div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/966551655706?text=مرحباً%20شيفا%20للسفر"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+
+    <script>
+        function toggleNav() {
+            var sidebar = document.getElementById("mySidebar");
+            if (sidebar.style.width === "250px") {
+                sidebar.style.width = "0";
+            } else {
+                sidebar.style.width = "250px";
+            }
+        }
+    </script>
 
 </body>
 </html>
+
 
