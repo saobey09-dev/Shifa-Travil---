@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إرساليات - شيفا للسفر</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+        body, html {
+            margin: 0; padding: 0;
+            font-family: 'Cairo', sans-serif;
+            /* استخدام الصورة الجديدة التي طلبتها */
+            background-image: url('ship.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 450px;
+            background: rgba(0, 0, 0, 0.6); /* تعميق الظل لتبرز البيانات فوق صورة السفينة */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            box-sizing: border-box;
+            color: white;
+            overflow-y: auto;
+        }
+
+        .header-back {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .header-back a { color: #00c3ff; text-decoration: none; font-size: 1.5rem; }
+
+        h2 { text-align: center; flex-grow: 1; margin: 0; font-size: 1.4rem; color: #fff; }
+
+        .form-group { margin-bottom: 20px; }
+
+        label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 0.95rem; color: #00c3ff; }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-family: 'Cairo', sans-serif;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        input:focus, select:focus { border-color: #00c3ff; background: rgba(255, 255, 255, 0.2); }
+
+        /* صندوق التنبيه المحدث */
+        .warning-box {
+            background: rgba(231, 76, 60, 0.15);
+            border-right: 5px solid #e74c3c;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .warning-box span { color: #e74c3c; font-weight: bold; display: block; margin-bottom: 5px; }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: white;
+            padding: 16px;
+            border-radius: 12px;
+            border: none;
+            font-family: 'Cairo', sans-serif;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
+
+        .management-footer {
+            text-align: center;
+            margin-top: auto;
+            padding-top: 20px;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <div class="header-back">
+            <a href="index.html"><i class="fas fa-chevron-right"></i></a>
+            <h2>قسم الإرساليات والشحن</h2>
+        </div>
+
+        <div class="form-group">
+            <label><i class="fas fa-user-edit"></i> بيانات المرسل</label>
+            <input type="text" id="sender" placeholder="الاسم الكامل وعنوان الإرسال">
+        </div>
+
+        <div class="form-group">
+            <label><i class="fas fa-map-marker-alt"></i> بيانات المستلم</label>
+            <input type="text" id="receiver" placeholder="الاسم الكامل وعنوان الوصول">
+        </div>
+
+        <div class="form-group">
+            <label><i class="fas fa-box"></i> نوع المحتوى</label>
+            <select id="type">
+                <option value="طرد ملابس">طرد ملابس</option>
+                <option value="أوراق ومستندات رسمية">أوراق ومستندات رسمية</option>
+                <option value="أدوات منزلية">أدوات منزلية</option>
+                <option value="إلكترونيات">إلكترونيات</option>
+                <option value="أخرى">أخرى</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label><i class="fas fa-info-circle"></i> ملاحظات الإرسالية</label>
+            <textarea id="details" rows="2" placeholder="اكتب هنا أي تفاصيل إضافية..."></textarea>
+        </div>
+
+        <div class="warning-box">
+            <span><i class="fas fa-exclamation-circle"></i> سياسة الشحن والممنوعات:</span>
+            يمنع نهائياً إرسال المواد الزجاجية القابلة للكسر، السوائل بكافة أنواعها، أو أي مواد تخضع للحظر القانوني. شحن هذه المواد يعرضك للمسؤولية القانونية وحظر الشحنة.
+        </div>
+
+        <button onclick="sendToWhatsApp()" class="btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> إرسال الطلب عبر الواتساب
+        </button>
+
+        <div class="management-footer">
+            إدارة: مصعب إبراهيم الشفيع
+        </div>
+    </div>
+
+    <script>
+        function sendToWhatsApp() {
+            const sender = document.getElementById('sender').value;
+            const receiver = document.getElementById('receiver').value;
+            const type = document.getElementById('type').value;
+            const details = document.getElementById('details').value;
+
+            if(!sender || !receiver) {
+                alert("من فضلك أدخل بيانات المرسل والمستلم أولاً");
+                return;
+            }
+
+            // تجهيز الرسالة بشكل احترافي للواتساب
+            const message = `*طلب إرسالية جديدة - شيفا للسفر*%0A%0A` +
+                            `👤 *المرسل:* ${sender}%0A` + 
+                            `📍 *المستلم:* ${receiver}%0A` + 
+                            `📦 *النوع:* ${type}%0A` + 
+                            `📝 *التفاصيل:* ${details || 'لا توجد'}%0A%0A` +
+                            `✅ _أتعهد بخلو الشحنة من السوائل والمواد المحظورة_`;
+
+            const whatsappUrl = `https://wa.me/966551655706?text=${message}`;
+            window.location.href = whatsappUrl;
+        }
+    </script>
+
+</body>
+</html>
+
