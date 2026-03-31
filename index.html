@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شفا للسفر والسياحة</title>
+    <title>شفا للسفر والسياحة - Shifa Travel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #1e3a8a; /* أزرق ملكي */
-            --accent: #3b82f6;
-            --bg-color: #f0f4f8;
-            --card-bg: rgba(255, 255, 255, 0.95);
+            --primary-blue: #1e3a8a;
+            --accent-blue: #3b82f6;
+            /* شفافية بيضاء خفيفة للأزرار */
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.3);
         }
 
         body {
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: url('main_bg.jpg'); /* استخدام ملفك الموجود بالصور */
+            /* خلفية الصفحة الرئيسية */
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('main_bg.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -29,99 +31,120 @@
             width: 100%;
             max-width: 480px;
             min-height: 100vh;
-            background: rgba(240, 244, 248, 0.85);
-            backdrop-filter: blur(10px);
+            /* الحاوية الرئيسية شفافة لتظهر الخلفية */
+            background: rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
-            box-shadow: 0 0 30px rgba(0,0,0,0.2);
+            position: relative;
         }
 
-        /* الهيدر */
+        /* الهيدر بتأثير الزجاج */
         .header {
-            padding: 30px 20px;
+            padding: 40px 20px;
             text-align: center;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: rgba(30, 58, 138, 0.8); /* أزرق شفاف */
+            backdrop-filter: blur(15px);
             color: white;
-            border-bottom-left-radius: 35px;
-            border-bottom-right-radius: 35px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
         }
 
         .logo-img {
-            width: 90px;
-            height: 90px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            border: 3px solid white;
-            background-color: white;
-            margin-bottom: 10px;
+            border: 3px solid rgba(255,255,255,0.5);
+            background: white;
+            padding: 5px;
+            margin-bottom: 15px;
+            object-fit: contain;
         }
 
-        .header h1 { margin: 5px 0; font-size: 1.4rem; }
-        .header p { margin: 0; font-size: 0.85rem; opacity: 0.9; }
+        .header h1 { margin: 5px 0; font-size: 1.6rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .header p { margin: 0; font-size: 0.9rem; opacity: 0.9; font-weight: 300; }
 
-        /* شبكة الأزرار - 9 أزرار */
+        /* شبكة الأزرار الشفافة */
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
-            padding: 20px;
-            margin-top: -20px;
+            padding: 0 20px 30px 20px;
             flex-grow: 1;
         }
 
-        /* جعل أزرار معينة تأخذ عرضاً كاملاً إذا أردت تنسيقاً مختلفاً، لكن هنا سنلتزم بطلبك */
         .menu-item {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 20px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px); /* تضبيب ما خلف الزر */
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 25px 15px;
             text-align: center;
             text-decoration: none;
-            color: var(--primary);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            transition: 0.3s;
+            color: var(--primary-blue);
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
-        .menu-item:active { transform: scale(0.95); }
+        .menu-item:active {
+            transform: translateY(4px);
+            background: rgba(255, 255, 255, 0.9);
+        }
 
         .icon-circle {
-            width: 55px;
-            height: 55px;
-            background: #eef2ff;
-            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            border-radius: 20px; /* زوايا مستديرة تشبه التطبيقات الحديثة */
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 12px;
-            font-size: 1.4rem;
-            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            color: white;
+            box-shadow: 0 5px 15px rgba(30, 58, 138, 0.3);
         }
 
-        .menu-item span { font-weight: bold; font-size: 0.9rem; }
+        .menu-item span {
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
 
-        /* تذييل الصفحة */
+        /* الفوتر الشفاف */
         .footer {
             text-align: center;
             padding: 20px;
-            background: var(--primary);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
             color: white;
-            font-size: 0.9rem;
-            border-top-left-radius: 25px;
-            border-top-right-radius: 25px;
+            font-weight: bold;
+            font-size: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
+
+        /* تخصيص زر تواصل معنا ليبرز أكثر */
+        .contact-btn {
+            grid-column: span 2;
+            background: rgba(37, 211, 102, 0.8); /* لون واتساب شفاف */
+            color: white;
+        }
+        .contact-btn .icon-circle { background: white; color: #25d366; }
     </style>
 </head>
 <body>
 
     <div class="app-container">
         <div class="header">
-            <img src="logo.png" alt="شفا" class="logo-img">
+            <img src="logo.png" alt="شفا للسفر والسياحة" class="logo-img">
             <h1>شفا للسفر والسياحة</h1>
-            <p>بوابتكم لخدمات السفر المتكاملة</p>
+            <p>رفيقكم الدائم في كل وجهة</p>
         </div>
 
         <div class="menu-grid">
@@ -132,12 +155,12 @@
             </a>
 
             <a href="tickets.html" class="menu-item">
-                <div class="icon-circle"><i class="fas fa-ticket-alt"></i></div>
+                <div class="icon-circle"><i class="fas fa-plane-departure"></i></div>
                 <span>التذاكر</span>
             </a>
 
             <a href="contracts.html" class="menu-item">
-                <div class="icon-circle"><i class="fas fa-file-signature"></i></div>
+                <div class="icon-circle"><i class="fas fa-file-contract"></i></div>
                 <span>الإقامات والعقود</span>
             </a>
 
@@ -147,12 +170,12 @@
             </a>
 
             <a href="shipping.html" class="menu-item">
-                <div class="icon-circle"><i class="fas fa-box-open"></i></div>
+                <div class="icon-circle"><i class="fas fa-shipping-fast"></i></div>
                 <span>الإرساليات</span>
             </a>
 
             <a href="currency.html" class="menu-item">
-                <div class="icon-circle"><i class="fas fa-coins"></i></div>
+                <div class="icon-circle"><i class="fas fa-exchange-alt"></i></div>
                 <span>العملات</span>
             </a>
 
@@ -162,11 +185,11 @@
             </a>
 
             <a href="fasting.html" class="menu-item">
-                <div class="icon-circle"><i class="fas fa-hand-holding-heart"></i></div>
+                <div class="icon-circle"><i class="fas fa-box-open"></i></div>
                 <span>كيس الصايم</span>
             </a>
 
-            <a href="contact.html" class="menu-item" style="grid-column: span 2;">
+            <a href="contact.html" class="menu-item contact-btn">
                 <div class="icon-circle"><i class="fab fa-whatsapp"></i></div>
                 <span>تواصل معنا</span>
             </a>
