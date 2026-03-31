@@ -3,187 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شيفا للسفر والسياحة - Shifa Travel App</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>شفا ترافيل - Shifa Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body, html {
-            margin: 0; padding: 0;
-            font-family: 'Cairo', sans-serif;
-            background-image: url('main_bg.jpg'); /* الحفاظ على خلفية الطائرة */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            overflow: hidden;
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #f8f9fa;
+            --text-color: #333;
+            --shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        /* حاوية التطبيق الشفافة */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+        }
+
         .app-container {
             width: 100%;
-            max-width: 450px;
-            background: rgba(0, 0, 0, 0.4); /* شفافية متوسطة */
+            max-width: 480px;
+            background-color: white;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            backdrop-filter: blur(5px); /* تأثير ضبابي خفيف */
+            box-shadow: var(--shadow);
             position: relative;
         }
 
-        /* الهيدر العلوي */
-        .app-header {
-            padding: 30px 20px 20px;
-            text-align: center;
+        /* الهيدر الاحترافي */
+        .header {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
             color: white;
-            background: rgba(0, 0, 0, 0.6); 
+            padding: 40px 20px;
+            text-align: center;
             border-bottom-left-radius: 30px;
             border-bottom-right-radius: 30px;
         }
 
-        .app-header img {
-            width: 110px;
-            height: auto;
-            margin-bottom: 10px;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
-        }
+        .header h1 { margin: 0; font-size: 1.5rem; }
+        .header p { margin: 5px 0 0; opacity: 0.9; font-size: 0.9rem; }
 
-        .app-header h1 {
-            margin: 0;
-            font-size: 1.6rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        /* شبكة الأزرار - الحفاظ على تصميم التطبيق */
+        /* شبكة الأزرار */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 15px;
-            padding: 25px;
-            margin-top: -15px;
+            padding: 20px;
+            margin-top: -30px;
         }
 
         .menu-item {
-            background: rgba(255, 255, 255, 0.15); /* أزرار شفافة */
-            padding: 22px 5px;
-            border-radius: 15px;
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
             text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s;
+            cursor: pointer;
             text-decoration: none;
-            color: white; /* نص أبيض */
-            backdrop-filter: blur(10px); /* تأثير ضبابي على الزر */
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: 0.3s;
+            color: var(--text-color);
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .menu-item:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-5px);
-            border-color: rgba(255,255,255,0.5);
+        .menu-item:active {
+            transform: scale(0.95);
         }
 
-        /* الأيقونات الأصلية والملونة */
-        .menu-item i {
-            font-size: 26px;
-            color: #00c3ff; /* لون أيقونات مشرق */
-            margin-bottom: 12px;
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background-color: #e8f0fe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .icon-box i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
         }
 
         .menu-item span {
-            font-size: 0.85rem;
             font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            font-size: 0.9rem;
         }
 
-        /* التذييل (الإدارة) - شفاف */
-        .app-footer {
-            margin-top: auto;
-            padding: 15px;
+        /* الفوتر */
+        .footer {
             text-align: center;
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-        }
-
-        .management {
-            font-size: 1.1rem;
-            font-weight: bold;
-            margin-bottom: 8px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-        }
-
-        .social-row {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .social-row a {
-            color: #00c3ff;
-            font-size: 1.6rem;
+            padding: 20px;
+            color: #888;
+            font-size: 0.8rem;
         }
     </style>
 </head>
 <body>
 
     <div class="app-container">
-        <div class="app-header">
-            <img src="logo.png" alt="شيفا للسفر">
-            <h1>شيفا للسفر والسياحة</h1>
+        <div class="header">
+            <h1>شفا ترافيل</h1>
+            <p>أهلاً بك في خدماتك الإلكترونية</p>
         </div>
 
         <div class="menu-grid">
-            <a href="umrah.html" class="menu-item">
-                <i class="fas fa-kaaba"></i>
-                <span>الحج والعمرة</span>
-            </a>
-            <a href="contracts.html" class="menu-item">
-                <i class="fas fa-file-signature"></i>
-                <span>عقود عمل</span>
-            </a>
-            <a href="tickets.html" class="menu-item">
-                <i class="fas fa-plane-departure"></i>
-                <span>حجز تذاكر</span>
+
+            <a href="license.html" class="menu-item">
+                <div class="icon-box">
+                    <i class="fas fa-id-card"></i>
+                </div>
+                <span>رخصة القيادة</span>
             </a>
 
-            <a href="shipping.html" class="menu-item">
-                <i class="fas fa-box-open"></i>
-                <span>إرساليات</span>
-            </a>
-            <a href="currency.html" class="menu-item">
-                <i class="fas fa-comments-dollar"></i>
-                <span>تحويل عملة</span>
-            </a>
-            <a href="visit.html" class="menu-item">
-                <i class="fas fa-passport"></i>
-                <span>الزيارات</span>
-            </a>
+            <div class="menu-item">
+                <div class="icon-box">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <span>حجز طيران</span>
+            </div>
 
-            <a href="https://wa.me/966551655706?text=مرحباً%20شيفا%20للسفر" class="menu-item">
-                <i class="fab fa-whatsapp"></i>
-                <span>تواصل معنا</span>
-            </a>
-            <a href="withdrawal.html" class="menu-item">
-                <i class="fas fa-ticket-alt"></i>
-                <span>سحب عمره</span>
-            </a>
-            <a href="fasting.html" class="menu-item">
-                <i class="fas fa-moon"></i>
-                <span>كيس الصائم</span>
-            </a>
+            <div class="menu-item">
+                <div class="icon-box">
+                    <i class="fas fa-hotel"></i>
+                </div>
+                <span>حجز فنادق</span>
+            </div>
+
+            <div class="menu-item">
+                <div class="icon-box">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <span>الدعم الفني</span>
+            </div>
+
         </div>
 
-        <div class="app-footer">
-            <div class="management">إدارة: مصعب إبراهيم الشفيع</div>
-            <div class="social-row">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/966551655706?text=مرحباً%20شيفا%20للسفر"><i class="fab fa-whatsapp"></i></a>
-            </div>
+        <div class="footer">
+            &copy; 2024 Shifa Travel - جميع الحقوق محفوظة
         </div>
     </div>
 
 </body>
 </html>
+
 
