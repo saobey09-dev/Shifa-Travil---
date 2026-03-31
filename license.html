@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رخصة القيادة الدولية - شفا</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --accent-blue: #3b82f6;
+            /* ضع رابط صورتك هنا */
+            --bg-image: url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=1000'); 
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            /* خلفية الصفحة كاملة */
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), var(--bg-image);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .app-screen {
+            width: 100%;
+            max-width: 480px;
+            /* جعل خلفية الحاوية شفافة قليلاً لتعطي مظهراً عصرياً */
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            min-height: 100vh;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+
+        .back-btn {
+            position: absolute;
+            right: 20px;
+            top: 25px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .alert-info {
+            background-color: rgba(224, 242, 254, 0.9);
+            border-right: 5px solid var(--accent-blue);
+            margin: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #0369a1;
+            font-weight: bold;
+        }
+
+        .form-container {
+            padding: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+            background: white;
+        }
+
+        .input-group input:focus {
+            border-color: var(--accent-blue);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #25d366;
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
+
+        /* نافذة الشروط */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            width: 85%;
+            max-width: 380px;
+            padding: 25px;
+            border-radius: 25px;
+            text-align: center;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .condition-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 18px 0;
+            text-align: right;
+            font-size: 1rem;
+            color: #444;
+        }
+
+        .condition-item i { color: #10b981; font-size: 1.2rem; }
+
+        .confirm-btn {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-screen">
+        <div class="header">
+            <a href="index.html" class="back-btn"><i class="fas fa-chevron-right"></i></a>
+            <h2>رخصة القيادة الدولية</h2>
+        </div>
+
+        <div class="alert-info">
+            <i class="fas fa-id-card-alt"></i>
+            <span>الرخصة مدتها عام كامل وقابلة للتجديد لدى شفا ترافيل.</span>
+        </div>
+
+        <div class="form-container">
+            <div class="input-group">
+                <label>الاسم الرباعي (كما في الجواز)</label>
+                <input type="text" id="fullName" placeholder="اكتب اسمك هنا...">
+            </div>
+
+            <button class="submit-btn" onclick="showConditions()">
+                <i class="fab fa-whatsapp"></i>
+                طلب الرخصة عبر الواتساب
+            </button>
+        </div>
+    </div>
+
+    <div id="conditionsModal" class="modal">
+        <div class="modal-content">
+            <h3 style="color: var(--primary-blue);">شروط استخراج الرخصة</h3>
+            <div style="height: 2px; background: #eee; margin-bottom: 15px;"></div>
+            
+            <div class="condition-item">
+                <i class="fas fa-check-circle"></i>
+                <span>العمر أكثر من 18 عاماً.</span>
+            </div>
+            <div class="condition-item">
+                <i class="fas fa-check-circle"></i>
+                <span>الإلمام التام بأساسيات القيادة.</span>
+            </div>
+            <div class="condition-item">
+                <i class="fas fa-check-circle"></i>
+                <span>الحالة الصحية جيدة جداً.</span>
+            </div>
+
+            <button class="confirm-btn" onclick="sendToWhatsapp()">موافق، تواصل مع المتخصص</button>
+        </div>
+    </div>
+
+    <script>
+        function showConditions() {
+            const name = document.getElementById('fullName').value;
+            if (name.trim().split(" ").length < 3) {
+                alert("يرجى كتابة الاسم ثلاثي أو رباعي للتكملة");
+                return;
+            }
+            document.getElementById('conditionsModal').style.display = 'flex';
+        }
+
+        function sendToWhatsapp() {
+            const name = document.getElementById('fullName').value;
+            const phone = "201503058070"; // الرقم بدون فواصل أو علامة + في الرابط
+            const message = `مرحباً شيفا للسفر والسياحة، أريد رخصة قيادة دولية.
+الاسم: ${name}
+لقد قرأت الشروط وأؤكد توافرها لدي.`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.location.href = `https://wa.me/${phone}?text=${encodedMessage}`;
+        }
+
+        window.onclick = function(event) {
+            let modal = document.getElementById('conditionsModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
+
