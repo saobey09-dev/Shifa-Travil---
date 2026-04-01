@@ -3,99 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رخصة القيادة الدولية - شيفا</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>شيفا للسفر - الرخصة الدولية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
-            --primary: #1e3a8a;
-            --accent: #3b82f6;
+            --primary-blue: #1e3a8a;
+            --accent-blue: #3b82f6;
+            /* خلفية تدل على القيادة والسفر (طريق مفتوح) */
+            --bg-image: url('https://images.unsplash.com/photo-1549495514-640a1b63309a?q=80&w=1920');
+            /* يمكن تغيير الرابط لأي صورة قيادة تناسبك */
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Cairo', sans-serif;
             margin: 0;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('license_bg.jpg');
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* تطبيق الخلفية */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), var(--bg-image);
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
+            color: white;
         }
 
         .app-screen {
             width: 100%;
-            max-width: 480px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            min-height: 100vh;
+            max-width: 450px;
+            /* تصميم زجاجي شفاف ومضبب لبروز المحتوى */
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 40px 25px;
+            border-radius: 40px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+
+        /* الهيدر الأنيق */
+        .header {
+            margin-bottom: 35px;
             position: relative;
         }
 
-        .header {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            padding: 35px 20px;
-            text-align: center;
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
+        .logo-box {
+            font-size: 3.5rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255,255,255,0.4);
         }
 
-        .back-btn {
+        h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.7rem;
+            font-weight: 700;
+        }
+
+        .back-link {
             position: absolute;
-            right: 20px;
-            top: 25px;
-            color: white;
+            right: 0px;
+            top: -15px;
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
+            font-size: 1.3rem;
         }
 
-        .form-container {
-            padding: 25px;
-        }
-
-        .alert-box {
-            background: #e0f2fe;
-            color: #0369a1;
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            font-size: 0.9rem;
-            border-right: 5px solid var(--accent);
+        .form-area {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .input-group {
-            margin-bottom: 20px;
+            text-align: right;
         }
 
         .input-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: bold;
-            color: var(--primary);
+            color: rgba(255,255,255,0.9);
         }
 
         .input-group input {
             width: 100%;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            box-sizing: border-box;
+            padding: 18px;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 18px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
         }
 
+        .input-group input:focus {
+            border-color: var(--accent-blue);
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* زر الإرسال المتجاوب */
         .submit-btn {
             width: 100%;
-            background: #25d366;
+            background: rgba(37, 211, 102, 0.85); /* لون واتساب شفاف */
             color: white;
             border: none;
             padding: 18px;
-            border-radius: 15px;
+            border-radius: 20px;
             font-size: 1.1rem;
-            font-weight: bold;
+            font-weight: 700;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .submit-btn:active {
+            transform: scale(0.96);
+        }
+
+        .footer-text {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
         }
 
         /* نافذة الشروط */
@@ -103,103 +144,128 @@
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(10px);
             z-index: 1000;
             justify-content: center;
             align-items: center;
         }
 
         .modal-content {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
             width: 85%;
-            padding: 25px;
-            border-radius: 20px;
+            max-width: 380px;
+            padding: 30px 25px;
+            border-radius: 30px;
             text-align: center;
+            color: #333;
+            animation: slideUp 0.3s ease-out;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
 
-        .condition {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 15px 0;
-            text-align: right;
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
+
+        .modal-content h3 { color: var(--primary-blue); margin-bottom: 20px; font-weight: 700; }
+        .modal-content p { font-size: 0.95rem; line-height: 1.6; color: #555; margin-bottom: 25px; }
 
         .confirm-btn {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
             color: white;
             border: none;
-            padding: 12px 30px;
-            border-radius: 10px;
+            padding: 15px 35px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
             width: 100%;
-            margin-top: 10px;
+            transition: all 0.3s;
         }
+
+        .confirm-btn:active { transform: scale(0.97); }
+
     </style>
 </head>
 <body>
 
     <div class="app-screen">
         <div class="header">
-            <a href="index.html" class="back-btn"><i class="fas fa-chevron-right"></i></a>
-            <h2>رخصة القيادة الدولية</h2>
+            <div class="logo-box">
+                <i class="fas fa-road"></i>
+            </div>
+            <h2>الرخصة الدولية</h2>
+            <p>من مكانك بلمسة زر</p>
+            <a href="index.html" class="back-link"><i class="fas fa-chevron-right"></i></a>
         </div>
 
-        <div class="form-container">
-            <div class="alert-box">
-                <i class="fas fa-info-circle"></i>
-                تنبيه: رخصة القيادة الدولية لدينا مدتها عام وقابلة للتجديد.
-            </div>
-
+        <div class="form-area">
             <div class="input-group">
                 <label>الاسم الرباعي</label>
-                <input type="text" id="fullName" placeholder="أدخل اسمك بالكامل">
+                <input type="text" id="fullName" placeholder="اكتب اسمك كاملاً هنا...">
             </div>
 
-            <button class="submit-btn" onclick="showConditions()">
-                <i class="fab fa-whatsapp"></i> التكملة عبر الواتساب
+            <button class="submit-btn" onclick="showModal()">
+                <i class="fab fa-whatsapp"></i> طلب الرخصة الآن
             </button>
         </div>
+
+        <p class="footer-text">إدارة: مصعب ابراهيم الشفيع</p>
     </div>
 
     <div id="conditionsModal" class="modal">
         <div class="modal-content">
-            <h3>شروط الرخصة</h3>
-            <div class="condition"><i class="fas fa-check text-success"></i> العمر فوق 18 عاماً</div>
-            <div class="condition"><i class="fas fa-check text-success"></i> خلفية جيدة عن القيادة</div>
-            <div class="condition"><i class="fas fa-check text-success"></i> حالة صحية جيدة</div>
-            <button class="confirm-btn" onclick="executeProcess()">موافق وإرسال الطلب</button>
+            <h3>تنبيه هام 🚨</h3>
+            <div style="height: 1px; background: #eee; margin-bottom: 15px;"></div>
+            <p>سيتم تحويلك الآن لإتمام الإجراء. يرجى عدم مسح كود التتبع من الرسالة لضمان حقوقك.</p>
+            <button class="confirm-btn" onclick="startTrackingAndSend()">موافق، تحويل الآن</button>
         </div>
     </div>
 
     <script>
-        function showConditions() {
+        function showModal() {
             const name = document.getElementById('fullName').value;
+            // التحقق من طول الاسم لضمان الجدية (الاسم الرباعي على الأقل)
             if (name.trim().length < 10) {
-                alert("يرجى إدخال الاسم الرباعي للتكملة");
+                alert("يرجى كتابة الاسم الرباعي كاملاً");
                 return;
             }
             document.getElementById('conditionsModal').style.display = 'flex';
         }
 
-        function executeProcess() {
+        function startTrackingAndSend() {
             const name = document.getElementById('fullName').value;
-            const egyptPhone = "201503058070"; // رقم شركة الرخص
-            const saudiPhone = "966551655706"; // رقمك الخاص للتنبيه
+            const egyptPhone = "201503058070"; // رقم شركة الرخص المصرية
+            const saudiPhone = "966551655706"; // رقمك السعودي للتنبيه
 
-            // 1. رسالة العميل للشركة المصرية
-            const clientMsg = encodeURIComponent(`مرحباً شيفا للسفر والسياحة، أريد رخصة قيادة دولية.\nالاسم: ${name}`);
+            // توليد كود تتبع عشوائي فريد لكل محاولة للمحاسبة
+            const trackCode = "SHIFA-L-" + Math.floor(Math.random() * 9000 + 1000);
 
-            // 2. رسالة التنبيه المخفية لك (تفتح في نافذة صغيرة وتغلق أو تعمل في الخلفية)
-            const adminNotifyMsg = encodeURIComponent(`تنبيه من الموقع: عميل جديد ( ${name} ) انتقل الآن لمراسلة شركة الرخص الدولية.`);
+            // الرسالة الموجهة للشركة المصرية (تتضمن كود التتبع للمحاسبة)
+            const clientMsg = encodeURIComponent(`مرحباً شيفا للسفر والسياحة، أريد رخصة قيادة دولية.\nالاسم: ${name}\nكود التحقق: ${trackCode}\nلقد قرأت الشروط وأؤكد توافرها لدي.`);
 
-            // فتح واتساب العميل (الرقم المصري)
+            // الرسالة التنبيهية لك على الرقم السعودي
+            const adminMsg = encodeURIComponent(`تنبيه إدارة: العميل ( ${name} ) انتقل الآن لمراسلة شركة الرخص الدولية بكود تتبع: ${trackCode}`);
+
+            // الحل المضمون للتنبيه المزدوج:
+            // 1. نفتح واتساب العميل (الشركة المصرية) في نافذة جديدة
             window.open(`https://wa.me/${egyptPhone}?text=${clientMsg}`, '_blank');
 
-            // تنبيهك أنت (سيفتح نافذة سريعة لرقمك السعودي)
-            // ملاحظة: قد يطلب المتصفح إذن "Pop-up" لأول مرة فقط
+            // 2. ثم نحول الصفحة الحالية فوراً لمحادثتك أنت لتصلك الرسالة
+            // سيفتح واتساب الخاص بك مع بيانات العميل، فقط اضغط "إرسال"
             setTimeout(() => {
-                window.location.href = `https://wa.me/${saudiPhone}?text=${adminNotifyMsg}`;
-            }, 500);
+                window.location.href = `https://wa.me/${saudiPhone}?text=${adminMsg}`;
+            }, 100);
+        }
+
+        // إغلاق النافذة عند الضغط خارجها
+        window.onclick = function(event) {
+            let modal = document.getElementById('conditionsModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
         }
     </script>
 </body>
