@@ -238,7 +238,7 @@
             const trackCode = "SHIFA-L-" + Math.floor(Math.random() * 9000 + 1000);
 
             // الرسالة الموجهة للشركة المصرية (تتضمن كود التتبع للمحاسبة)
-            const clientMsg = encodeURIComponent(`مرحباً شيفا للسفر والسياحة، أريد رخصة قيادة دولية.\nالاسم: ${name}\nكود التحقق: ${trackCode}\nلقد قرأت الشروط وأؤكد توافرها لدي.`);
+            const clientMsg = encodeURIComponent(`مرحباً شيفا للسفر والسياحة، أريد رخصة قيادة دولية.\nالاسم: ${name}\nكود التحقق: ${trackCode} .`);
 
             // الرسالة التنبيهية لك على الرقم السعودي
             const adminMsg = encodeURIComponent(`تنبيه إدارة: العميل ( ${name} ) انتقل الآن لمراسلة شركة الرخص الدولية بكود تتبع: ${trackCode}`);
